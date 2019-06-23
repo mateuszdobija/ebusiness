@@ -1,0 +1,7 @@
+[debug] Copy resource mappings: 
+[debug] 	(/home/mateusz/ebiznes/zad_5/conf/evolutions,/home/mateusz/ebiznes/zad_5/target/scala-2.12/classes/evolutions)
+[debug] 	(/home/mateusz/ebiznes/zad_5/conf/logback.xml,/home/mateusz/ebiznes/zad_5/target/scala-2.12/classes/logback.xml)
+[debug] 	(/home/mateusz/ebiznes/zad_5/conf/application.conf,/home/mateusz/ebiznes/zad_5/target/scala-2.12/classes/application.conf)
+[debug] 	(/home/mateusz/ebiznes/zad_5/conf/routes,/home/mateusz/ebiznes/zad_5/target/scala-2.12/classes/routes)
+[debug] 	(/home/mateusz/ebiznes/zad_5/conf/evolutions/default,/home/mateusz/ebiznes/zad_5/target/scala-2.12/classes/evolutions/default)
+[debug] 	(/home/mateusz/ebiznes/zad_5/conf/evolutions/default/1.sql,/home/mateusz/ebiznes/zad_5/target/scala-2.12/classes/evolutions/default/1.sql)

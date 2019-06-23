@@ -1,0 +1,108 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                controllers.ApplicationController.index
+GET         /signOut                         controllers.ApplicationController.signOut
+GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
+
+GET         /signUp                          controllers.SignUpController.view
+POST        /signUp                          controllers.SignUpController.submit
+
+GET         /signIn                          controllers.SignInController.view
+POST        /signIn                          controllers.SignInController.submit
+
+GET         /password/forgot                 controllers.ForgotPasswordController.view
+POST        /password/forgot                 controllers.ForgotPasswordController.submit
+GET         /password/reset/:token           controllers.ResetPasswordController.view(token: java.util.UUID)
+POST        /password/reset/:token           controllers.ResetPasswordController.submit(token: java.util.UUID)
+GET         /password/change                 controllers.ChangePasswordController.view
+POST        /password/change                 controllers.ChangePasswordController.submit
+
+GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
+GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                    controllers.Assets.versioned(file)
+->          /webjars                         webjars.Routes
+
+
+GET     /books/:id                      controllers.BookController.getById(id:Int)
+GET     /ebooks/:id                     controllers.EBookController.getById(id:Int)
+GET     /audiobook/:id                  controllers.AudioBookController.getById(id:Int)
+
+GET     /books                          controllers.BookController.getBooks
+GET     /ebooks                         controllers.EBookController.getBooks
+GET     /audiobooks                      controllers.AudioBookController.getBooks
+
+#POST     /booksToBasket/:id             controllers.BookController.addToBasket(id:String)
+#POST    /ebooksToBasket/:id             controllers.EBookController.addToBasket(id:String)
+#POST     /audiobookToBasket/:id         controllers.AudioBookController.addToBasket(id:String)
+
+#POST     /booksdelFromBasket/:id        controllers.BookController.delFromBasket(id:String)
+#POST    /ebooksdelFromBasket/:id        controllers.EBookController.delFromBasket(id:String)
+#POST     /audiobookdelFromBasket/:id    controllers.AudioBookController.delFromBasket(id:String)
+
+POST     /booksToDb/:id                 controllers.BookController.addToDbById(id:Int)
+POST     /ebooksToDb/:id                controllers.EBookController.addToDbById(id:Int)
+POST     /audiobookToDb/:id             controllers.AudioBookController.addToDbById(id:Int)
+
+POST     /booksdelfromdb/:id            controllers.BookController.deleteFromDbById(id:Int)
+POST     /ebooksdelfromdb/:id           controllers.EBookController.deleteFromDbById(id:Int)
+POST     /audiobookdelfromdb/:id        controllers.AudioBookController.deleteFromDbById(id:Int)
+
+#GET      /ebooksAddToDb                  controllers.EBookController.addToDb()
+#GET     /audiobookAddToDb               controllers.AudioBookController.addToDb()
+
+#GET     /booksdelfromdb                 controllers.BookController.deleteFromDb()
+#GET     /ebooksdelfromdb                controllers.EBookController.deleteFromDb()
+#GET     /audiobookdelfromdb             controllers.AudioBookController.deleteFromDb()
+
+
+
+#GET     /login                          controllers.UserController.login()
+#GET     /login/:id/:haslo               controllers.UserController.loginById(id:String, haslo:String)
+
+#GET     /register                       controllers.UserController.register()
+#GET     /register/:id/:haslo            controllers.UserController.registerById(id:String, haslo:String)
+
+
+
+GET     /publishers                      controllers.PublisherController.getPublishers
+
+POST      /addBook                      controllers.BookController.addBook()
+POST      /addEBook                      controllers.EBookController.addBook()
+POST      /addAudioBook                      controllers.AudioBookController.addBook()
+POST      /addCategory                      controllers.CategoryController.addCategory()
+POST     /addPublisher                   controllers.PublisherController.addPublisher()
+
+GET     /categories                      controllers.CategoryController.getCategories
+GET     /authors                        controllers.AuthorController.getAuthors
+
+GET     /isLogged                           controllers.ApplicationController.isLogged
+
++nocsrf
+POST     /buyBook                       controllers.PurchaseController.buyBook()
++nocsrf
+POST     /buyEBook                       controllers.PurchaseController.buyEBook()
++nocsrf
+POST     /buyAudioBook                       controllers.PurchaseController.buyAudioBook()
+
+#+nocsrf
+#POST     /delAudioBook                       controllers.AudioBookController.delete()
+
++nocsrf
+POST     /delPublisher                   controllers.PublisherController.delete
+
++nocsrf
+POST    /delBook                       controllers.BookController.delete
+
++nocsrf
+POST    /delEBook                       controllers.EBookController.delete
+
++nocsrf
+POST    /delAudioBook                       controllers.AudioBookController.delete
+
++nocsrf
+POST    /delCategory                       controllers.CategoryController.delete

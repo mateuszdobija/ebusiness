@@ -1,0 +1,63 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /books/:id                      controllers.BookController.getById(id:Int)
+GET     /ebooks/:id                     controllers.EBookController.getById(id:Int)
+GET     /audiobook/:id                  controllers.AudioBookController.getById(id:Int)
+
+GET     /books                          controllers.BookController.getBooks
+GET     /ebooks                         controllers.EBookController.getBooks
+GET     /audiobooks                      controllers.AudioBookController.getBooks
+
+#POST     /booksToBasket/:id             controllers.BookController.addToBasket(id:String)
+#POST    /ebooksToBasket/:id             controllers.EBookController.addToBasket(id:String)
+#POST     /audiobookToBasket/:id         controllers.AudioBookController.addToBasket(id:String)
+
+#POST     /booksdelFromBasket/:id        controllers.BookController.delFromBasket(id:String)
+#POST    /ebooksdelFromBasket/:id        controllers.EBookController.delFromBasket(id:String)
+#POST     /audiobookdelFromBasket/:id    controllers.AudioBookController.delFromBasket(id:String)
+
+POST     /booksToDb/:id                 controllers.BookController.addToDbById(id:Int)
+POST     /ebooksToDb/:id                controllers.EBookController.addToDbById(id:Int)
+POST     /audiobookToDb/:id             controllers.AudioBookController.addToDbById(id:Int)
+
+POST     /booksdelfromdb/:id            controllers.BookController.deleteFromDbById(id:Int)
+POST     /ebooksdelfromdb/:id           controllers.EBookController.deleteFromDbById(id:Int)
+POST     /audiobookdelfromdb/:id        controllers.AudioBookController.deleteFromDbById(id:Int)
+
+#GET      /ebooksAddToDb                  controllers.EBookController.addToDb()
+#GET     /audiobookAddToDb               controllers.AudioBookController.addToDb()
+
+#GET     /booksdelfromdb                 controllers.BookController.deleteFromDb()
+#GET     /ebooksdelfromdb                controllers.EBookController.deleteFromDb()
+#GET     /audiobookdelfromdb             controllers.AudioBookController.deleteFromDb()
+
+
+
+#GET     /login                          controllers.UserController.login()
+GET     /login/:id/:haslo               controllers.UserController.loginById(id:String, haslo:String)
+
+#GET     /register                       controllers.UserController.register()
+GET     /register/:id/:haslo            controllers.UserController.registerById(id:String, haslo:String)
+
+
+POST     /addPublisher                   controllers.PublisherController.addPublisher(name:String)
+POST     /delPublisher                   controllers.PublisherController.deletePublisher(name:String)
+GET     /publishers                      controllers.PublisherController.getPublishers
+
+POST      /addBook                      controllers.BookController.addBook()
+
+#GET     /categories                      controllers.CategoryController.getCategories
+
